@@ -8,7 +8,7 @@ const Notes = () => {
 
   useEffect(() => {
     const getNotes = async () => {
-      await axios.get(process.env.API_URL + "api/notes/").then(async (res) => {
+      await axios.get(process.env.API_URL + "notes/").then(async (res) => {
         setNotes(res.data);
       });
     };

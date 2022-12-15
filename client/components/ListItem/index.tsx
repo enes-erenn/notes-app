@@ -1,4 +1,5 @@
 import React from "react";
+import Link from "next/link";
 import { Note } from "../../types/types";
 
 interface Props {
@@ -7,9 +8,9 @@ interface Props {
 
 const ListItem: React.FC<Props> = ({ note }) => {
   return (
-    <div>
+    <Link href={`/note/${note.id}`}>
       <h3>{note.body}</h3>
-    </div>
+    </Link>
   );
 };
 
