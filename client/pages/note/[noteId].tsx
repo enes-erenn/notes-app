@@ -37,6 +37,14 @@ const SingleNote = () => {
       });
   };
 
+  const deleteNote = async () => {
+    await axios
+      .delete(process.env.API_URL + `notes/${noteId}/delete/`)
+      .then(() => {
+        router.push("/");
+      });
+  };
+
   // Render this initially
   if (note == null) {
     return <div>Loading...</div>;
@@ -50,16 +58,21 @@ const SingleNote = () => {
           <div className={styles.header}>
             <h1>Note</h1>
           </div>
-          <div className={styles.note}>
-            <div className={styles.control}>
+          <div className={styles.editor}>
+            <div className={styles.buttons}>
               <Link href="/">
                 <button className={styles.back}>Back</button>
               </Link>
-              {isTouched && (
-                <button className={styles.save} onClick={updateNote}>
-                  Save
+              <div className={styles.controller}>
+                {isTouched && (
+                  <button className={styles.save} onClick={updateNote}>
+                    Save
+                  </button>
+                )}
+                <button className={styles.delete} onClick={deleteNote}>
+                  Delete
                 </button>
-              )}
+              </div>
             </div>
 
             <textarea

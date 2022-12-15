@@ -26,53 +26,29 @@ $color-border: #252629;
     background-color: $color-dark;
     box-shadow: 1px 1px 6px rgba(0, 0, 0, 0.05);
     position: relative;
-    .note {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-direction: column;
-      padding: 1rem 0;
+    display: grid;
+    grid-template-rows: 1fr 9fr;
 
-      .control {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: 4px 1rem;
-        width: 100%;
+    .editor {
+      display: grid;
+      grid-template-rows: 1fr 9fr;
+    }
 
-        .save {
-          background-color: $color-main;
-          color: $color-white;
-          border: none;
-          padding: 10px 1rem;
-          cursor: pointer;
-          border-radius: 1rem;
-        }
-        .back {
-          background-color: $color-lighter;
-          color: $color-white;
-          border: none;
-          padding: 10px 1rem;
-          cursor: pointer;
-          border-radius: 4px;
-        }
-      }
-
-      textarea {
-        background-color: $color-dark;
-        border: none;
-        padding: 16px 12px;
-        width: 100%;
-        height: 70vh;
-        resize: none;
-        scrollbar-width: none; /* Firefox */
-        outline: none;
-      }
+    .add {
+      position: absolute;
+      bottom: 1rem;
+      right: 1rem;
+      width: 4rem;
+      height: 4rem;
+      background-color: $color-main;
+      border: none;
+      font-size: 3rem;
+      text-align: center;
+      cursor: pointer;
+      border-radius: 50%;
     }
 
     .list {
-      padding: 0;
-      margin: 16px 0;
       height: 70vh;
       overflow-y: auto;
       scrollbar-width: none; /* Firefox */
@@ -104,7 +80,72 @@ $color-border: #252629;
       display: flex;
       align-items: center;
       justify-content: space-between;
+      width: 100%;
       padding: 1rem 2rem;
+    }
+  }
+
+  .buttons {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 4px 1rem;
+    width: 100%;
+    border-bottom: 1px solid lightgray;
+
+    .controller {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+    .save {
+      background-color: $color-main;
+      color: $color-white;
+      border: none;
+      padding: 10px 1rem;
+      cursor: pointer;
+      border-radius: 1rem;
+    }
+    .back {
+      background-color: $color-lighter;
+      color: $color-white;
+      border: none;
+      padding: 10px 1rem;
+      cursor: pointer;
+      border-radius: 4px;
+    }
+    .delete {
+      background-color: $color-gray;
+      color: $color-dark;
+      border: none;
+      padding: 10px 1rem;
+      cursor: pointer;
+      border-radius: 4px;
+    }
+  }
+
+  textarea {
+    background-color: $color-dark;
+    border: none;
+    padding: 16px 12px;
+    resize: none;
+    outline: none;
+    overflow: auto;
+    &::-webkit-scrollbar {
+      width: 4px;
+      height: 100%;
+      border-radius: 1rem;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: $color-main;
+      border-radius: 1rem;
+    }
+
+    &::-webkit-scrollbar-track {
+      border-radius: 1rem;
+      background: white;
     }
   }
 }
