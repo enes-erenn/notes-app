@@ -9,7 +9,9 @@ interface Props {
 const ListItem: React.FC<Props> = ({ note }) => {
   return (
     <Link href={`/note/${note.id}`}>
-      <h3>{note.body}</h3>
+      <li>
+        <h3>{note.body}</h3>
+      </li>
     </Link>
   );
 };

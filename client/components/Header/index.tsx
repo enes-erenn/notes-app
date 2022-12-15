@@ -1,11 +1,17 @@
 import React from "react";
+import styles from "../../styles/Home.module.scss";
 
-const Header = () => {
+interface Props {
+  length: number;
+}
+
+const Header: React.FC<Props> = ({ length }) => {
   return (
-    <div>
-      <h1>Header</h1>
+    <div className={styles.header}>
+      <h2>&#9782; Notes</h2>
+      <p>{length}</p>
     </div>
   );
 };
 
-export default Header;
+export default React.memo(Header);

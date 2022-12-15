@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Note } from "../../types/types";
 import ListItem from "../ListItem";
+import Header from "../Header";
+import styles from "../../styles/Home.module.scss";
 
 const Notes = () => {
   const [notes, setNotes] = useState<Note[]>([]);
@@ -18,11 +20,14 @@ const Notes = () => {
   }, []);
 
   return (
-    <ul>
-      {notes.map((note: Note) => (
-        <ListItem key={note.id} note={note} />
-      ))}
-    </ul>
+    <div className={styles.app}>
+      <Header length={notes.length} />
+      <ul className={styles.list}>
+        {notes.map((note: Note) => (
+          <ListItem key={note.id} note={note} />
+        ))}
+      </ul>
+    </div>
   );
 };
 
