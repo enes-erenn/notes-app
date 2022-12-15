@@ -46,6 +46,7 @@ $color-border: #252629;
       text-align: center;
       cursor: pointer;
       border-radius: 50%;
+      font-family: "Courier New", Courier, monospace;
     }
 
     .list {
@@ -57,14 +58,28 @@ $color-border: #252629;
 
       li {
         border-bottom: 1px solid $color-border;
-        margin-bottom: 12px;
+        margin-bottom: 6px;
         padding: 8px 16px;
-        height: 4rem;
+        height: 5rem;
         display: flex;
-        align-items: center;
+        flex-direction: column;
+        align-items: flex-start;
         justify-content: flex-start;
         transition: all 0.2s ease-in-out;
-
+        h3 {
+          color: $color-main;
+        }
+        div {
+          display: flex;
+          align-items: flex-start;
+          justify-content: flex-start;
+          gap: 10px;
+          width: 100%;
+          margin-top: 6px;
+          p {
+            color: $color-gray;
+          }
+        }
         &:hover {
           background-color: $color-bg;
           cursor: pointer;
