@@ -47,7 +47,11 @@ const SingleNote = () => {
 
   // Render this initially
   if (note == null) {
-    return <div>Loading...</div>;
+    return (
+      <div className={styles.container}>
+        <div className={styles.app}>Loading...</div>
+      </div>
+    );
   }
 
   // Render this if there is note which matches that id
@@ -87,7 +91,11 @@ const SingleNote = () => {
   }
 
   // Render this if there is no note which matches that id
-  return <div>Not found any note.</div>;
+  return (
+    <div className={styles.container}>
+      <div className={styles.app}>Not found any note.</div>
+    </div>
+  );
 };
 
 export default SingleNote;
